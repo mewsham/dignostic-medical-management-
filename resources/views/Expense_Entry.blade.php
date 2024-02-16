@@ -594,18 +594,19 @@
 
                  </div>
                  <div class="container border border-width-1 border-info">
-                <form>
+                <form action="{{route('ExpenseEntry')}}" method="post">
+                    @csrf
                   <div class="row">
                      <div class="col">
-                         <label for="Expense-amount">Amount :   </label>
+                         <label for="amount">Amount :   </label>
 
 
 
-                         <input  type="text" id="Expense-amount" class="form-control-md w-50" placeholder="enter......">
+                         <input  type="text" id="Expense-amount" name="amount" class="form-control-md w-50" placeholder="enter......">
                      </div>
                      <div class="col">
-                         <label for="Purpose-selector">Purpose :   </label>
-                         <select class="custom-select-md w-50  form-control-md"  id="Purpose-selector" value="Select Purpose" placeholder="Select Purpose">Select Purpose
+                         <label for="purpose">Purpose :   </label>
+                         <select class="custom-select-md w-50  form-control-md" name="purpose"  id="Purpose-selector" value="Select Purpose" placeholder="Select Purpose">Select Purpose
                              <option>
                                 Doctor's Entertainment
                              </option>
@@ -668,19 +669,19 @@
                      </div>
                      <div class="row">
                         <div class="col">
-                            <label for="Remarks">Remarks :   </label>
+                            <label for="remarks">Remarks :   </label>
 
 
 
-                            <input  type="text" id="Remarks" class="form-control-md w-50" placeholder="enter......">
+                            <input  type="text" id="Remarks" name="remarks" class="form-control-md w-50" placeholder="enter......">
                         </div>
                         <div class="col">
                             <label for="Date-Time">Date Time :   </label>
-                            <input  type="datetime-local" id="Date-Time" class="form-control-md w-50" placeholder="enter......">
+                            <input  type="datetime-local" name="Date-Time" id="Date-Time" class="form-control-md w-50" placeholder="enter......">
 
                         </div>
                      <div class="col-5  m-md-auto mt-2" style="display: flex;  justify-content: center;">
-                        <a href="#"><button  type="button" id="table-submission" class="btn btn-primary">submit</button></a>
+                        <a href="#"><button  type="submit" id="table-submission" class="btn btn-primary">submit</button></a>
                      </div>
 
                     </div>

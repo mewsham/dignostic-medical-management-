@@ -130,7 +130,14 @@
                                     <div class="col-12">
                                         <div class="col-12 mt-2">
                                             <label for="exampleInputEmail1">Doctor Name</label>
-                                            <input type="text" class="form-control" placeholder="" name="doctorname">
+                                            <select name="doctorname" id="doctor">
+                                                <option value="0">---select doctor---</option>
+                                                @foreach ($doctor['data'] as $doctorname )
+
+
+                                                <option value="{{$doctorname->name}}">{{$doctorname->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="col-12 mt-2">
                                             <label for="exampleInputEmail1">Referred By</label>

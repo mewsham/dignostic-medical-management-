@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dashboard;
+use App\Models\AddPatient;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,10 +11,10 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     //
-    // }
+    public function index()
+    {
+
+    }
     // public function newPatientEntry()
     // {
     //     return view('New_Patient_Entry');
@@ -60,9 +61,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dashboard $dashboard)
+    public function show()
     {
-        //
+        $data['newpatient']= AddPatient::all();
+        return view('dataforms.New_patient_entry2',$data);
     }
 
     /**

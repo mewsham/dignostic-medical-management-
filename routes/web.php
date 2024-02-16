@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::get('/login', function () {
 })->name('login');
 
 use App\Http\Controllers\PageController;
-
+Route::get('/AddPatient',[DashboardController::class,'show'])->name('AddPatient');
 Route::get('/', [PageController::class, 'index'])->name('index');
 Route::post('/Newpatiententry',[PageController::class, 'newPatientEntry'])->name('Newpatiententry');
 Route::post('/Newpatiententry2',[PageController::class, 'New_PatientEntry2'])->name('Newpatiententry2');
@@ -69,6 +70,9 @@ Route::post('/usergroup',[PageController::class,'usergroup'])->name('usergroup')
 Route::post('/adduser',[PageController::class,'Add_user'])->name('adduser');
 Route::post('/addreferraldoctor',[PageController::class,'addreferral_doctor'])->name('addreferraldoctor');
 Route::post('/PurposeEntry',[PageController::class,'Purpose_entry'])->name('PurposeEntry');
+Route::post('/ExpenseEntry',[PageController::class,'Expense_entry'])->name('ExpenseEntry');
+
+
 
 
 

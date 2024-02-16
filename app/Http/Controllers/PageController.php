@@ -7,6 +7,7 @@ use App\Models\addreferraldoctor;
 use App\Models\AddTest;
 use App\Models\adduser;
 use App\Models\addusergroup;
+use App\Models\ExpenseEntry;
 use App\Models\testentry;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,7 @@ class PageController extends Controller
     {
         return view('index');
     }
+
 
     // Reception & Billings Section
     public function newPatientEntry(Request $request)
@@ -46,7 +48,9 @@ class PageController extends Controller
         // return view('New_Patient_Entry');
     }
     public function New_PatientEntry(){
-        return view('New_Patient_Entry');
+        $doctor['data']=addreferraldoctor::orderby("name","asc")
+        ->select('name')->get();
+        return view('New_Patient_Entry')->with("doctor",$doctor);
     }
     public function New_PatientEntry2(Request $request){
         $data= new AddPatient;
@@ -61,7 +65,8 @@ class PageController extends Controller
         $data->doctorname=$request->doctorname;
         $data->referredby=$request->referredby;
         $data->save();
-        return redirect()->back();
+        return redirect('/AddPatient');
+
 
 
 
@@ -70,6 +75,7 @@ class PageController extends Controller
 
 
     }
+
 
 
     public function oldPatientEntry()
@@ -133,6 +139,14 @@ class PageController extends Controller
     public function expenseEntry()
     {
         return view('Expense_Entry');
+    }
+    public function Expense_entry(Request $request){
+        $data= new ExpenseEntry;
+        $data->amount=$request->amount;
+        $data->purpose=$request->purpose;
+        $data->remarks=$request->remarks;
+        $data->save();
+        return redirect()->back();
     }
 
     public function expenseSummary()

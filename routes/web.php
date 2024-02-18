@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PageController;
+use Illuminate\Contracts\Pagination\Paginator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,14 +27,16 @@ Route::get('/login', function () {
     return view('Auth.login');
 })->name('login');
 
-use App\Http\Controllers\PageController;
+
+
 Route::get('/AddPatient',[DashboardController::class,'show'])->name('AddPatient');
+Route::get('/oldpatientrecord',[DashboardController::class,'oldpatientrecords'])->name('oldpatientRecord');
 Route::get('/', [PageController::class, 'index'])->name('index');
 Route::post('/Newpatiententry',[PageController::class, 'newPatientEntry'])->name('Newpatiententry');
 Route::post('/Newpatiententry2',[PageController::class, 'New_PatientEntry2'])->name('Newpatiententry2');
 Route::get('/newpatiententry',[PageController::class, 'New_PatientEntry'])->name('newpatiententry');
 Route::get('/oldpatiententry',[PageController::class, 'oldPatientEntry'])->name('oldpatiententry');
-Route::get('/payment',[PageController::class,'payment'])->name('payment');
+Route::get('/payment',[PageController::class,'Payment'])->name('payment');
 Route::get('/collectionhistory',[PageController::class,'collectionHistory'])->name('collectionhistory');
 route::get('/searchpatient',[PageController::class,'patientList']);
 Route::get('/doctornameentry',[PageController::class,'doctorNameEntry']);
@@ -50,7 +53,7 @@ Route::get('/Doctorwisetestcategoryincome',[PageController::class,'doctorWiseTes
 Route::get('/testentry',[PageController::class,'Testentry'])->name('testentry');
 Route::get('/AddTestReportFormat',[PageController::class,'addTestReportFormat'])->name('AddTestReportFormat');
 Route::get('/doctorreferralpayment',[PageController::class,'doctorrefferal_payment'])->name('doctorreferralpayment');
-
+Route::get('/AddIncomeorExpenses',[PageController::class,'AddIncomeExpense']);
 
 Route::get('/PatientSummary',[PageController::class,'patientSummary']);
 Route::get('/AddTestResult',[PageController::class,'addTestResult']);
@@ -71,6 +74,7 @@ Route::post('/adduser',[PageController::class,'Add_user'])->name('adduser');
 Route::post('/addreferraldoctor',[PageController::class,'addreferral_doctor'])->name('addreferraldoctor');
 Route::post('/PurposeEntry',[PageController::class,'Purpose_entry'])->name('PurposeEntry');
 Route::post('/ExpenseEntry',[PageController::class,'Expense_entry'])->name('ExpenseEntry');
+Route::post('/addtestOldpatient',[PageController::class,'AddTestOLdpatient'])->name('addtestOldpatient');
 
 
 

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('Gender')->nullable();
             $table->string('Address')->nullable();
             $table->string('Bloodgroup')->nullable();
-            $table->string('Bloodgroup')->nullable();
+
             $table->string('Doctorname')->nullable();
             $table->string('RefferedBy')->nullable();
 

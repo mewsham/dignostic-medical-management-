@@ -582,86 +582,47 @@
     <section class="content-wrapper">
         <div class="container ">
 
-            <form>
-              <table class="table table-bordered bg-gradient-success">
-                  <td colspan="2">
+            <form action="{{route('oldpatientRecord')}}" method="GET">
+                @csrf
               <label for="Patient-ID">Patient ID :   </label>
-          </td>
 
 
-          <td colspan="4">
-              <input  type="number" id="Patient-ID" class="form-control-md w-50" placeholder="enter......">
-          </td>
-          </table>
+
+
+              <input  type="numbers"  name="search" id="Patient-ID" class="form-control-md w-50" placeholder="enter......">
+              <button class="btn btn-primary" type="submit">search patient</button>
+
+
             </form>
 
           </div>
-          <div class="container mt-1">
-           <table class="table table-bordered  align-vertical">
-                <thead></thead>
-                <tbody>
-                   <tr>
-                    <td>Patient-ID</td>
-                    <td>1</td>
-                    <td>Entry Date</td>
-                    <td>15/06/2021 05:33</td>
-                   </tr>
-                   <tr>
-                    <td>Reg.No</td>
-                    <td>01/06-2021</td>
-                    <td>Operator</td>
-                    <td>Waji</td>
-                   </tr>
-                   <tr>
-                    <td>Name</td>
-                    <td>abdul rauf</td>
-                    <td>Phone</td>
-                    <td>03099814608</td>
-                   </tr>
-                   <tr>
-                    <td>Age</td>
-                    <td>25 years</td>
-                    <td>Gender</td>
-                    <td>Male</td>
-                   </tr>
-                   <tr>
-                    <td>Address</td>
-                    <td colspan="3">Rawalpinid shamsabad</td>
 
-                   </tr>
-                   <tr>
-                    <td>Doctor Name</td>
-                    <td colspan="3">DR.SHUVU MBBS ,FCCPS</td>
-
-                   </tr>
-
-                </tbody>
-
-            </table>
-       </div>
         <div class="container mt-3">
 
             <div class="card card-success">
                 <div class="card-header">
                     <h3 class="card-title">Tests</h3>
                 </div>
+                <form action="{{ route('addtestOldpatient') }}" method="post">
+                    @csrf
                 <div class="form-group card-body">
                     <label for="exampleInputEmail1">Add Test</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter...">
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="addtest" placeholder="Enter...">
                     <div class="row mt-4">
                         <div class="col-6">
                             <label for="exampleInputEmail1">Price</label>
-                            <input type="text" class="form-control" placeholder=".col-3">
+                            <input type="text" class="form-control" name="price" placeholder=".col-3">
                         </div>
                         <div class="col-6">
                             <label for="exampleInputEmail1">Referrer fee</label>
-                            <input type="text" class="form-control" placeholder=".col-4">
+                            <input type="text" class="form-control" name="referrerfee" placeholder=".col-4">
                         </div>
                         <div class="col-5 mt-3" style="display: flex;justify-content: left;align-items: end;">
                             <button class="btn btn-primary">Add test</button>
                         </div>
                     </div>
                 </div>
+            </form>
                 <!-- /.card-body -->
             </div>
         </div>

@@ -82,8 +82,15 @@ class PageController extends Controller
     {
         return view('Old_Patient_Entry');
     }
+    public function AddTestOLdpatient(Request $request){
+        $data= new AddTest;
+        $data->addtest=$request->addtest;
+        $data->price=$request->price;
+        $data->save();
+       return redirect('/addtestOldpatient');
+    }
 
-    public function payment()
+    public function Payment()
     {
         return view('Payment');
     }
@@ -225,6 +232,10 @@ class PageController extends Controller
     {
         return view('Report_Done_Status');
     }
+    public function AddIncomeExpense(){
+        return view('Add_Income_Expenses');
+    }
+
 
     // Administration Section
     public function addUserGroup()

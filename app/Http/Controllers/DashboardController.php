@@ -63,10 +63,21 @@ class DashboardController extends Controller
      */
     public function show()
     {
-        $data['newpatient']= AddPatient::all();
-        return view('dataforms.New_patient_entry2',$data);
+        $data['newpatient'] = AddPatient::all();
+        return view('dataforms.New_patient_entry2', $data);
     }
+    // public function oldpatientrecord(Request $request){
+    //    $search = $request->search;
+    //    $data= AddPatient::where('id','Like','%'.$search.'%')->get();
+    //    return view('dataforms.oldpatientrecord',compact('data'));
+    // }
+    public function oldpatientrecords(Request $request)
+    {
+        $data = AddPatient::find($request->input("search"));
+        $id=$data->id;
+        return view('dataforms.oldpatientrecord', compact('data', 'id'));
 
+    }
     /**
      * Show the form for editing the specified resource.
      */

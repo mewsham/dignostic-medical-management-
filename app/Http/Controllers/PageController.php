@@ -86,8 +86,10 @@ class PageController extends Controller
         $data= new AddTest;
         $data->addtest=$request->addtest;
         $data->price=$request->price;
+        $data->referrerfee=$request->referrerfee;
         $data->save();
-       return redirect('/addtestOldpatient');
+
+       return redirect('/oldpatientRecord');
     }
 
     public function Payment()

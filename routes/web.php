@@ -74,8 +74,8 @@ Route::post('/adduser',[PageController::class,'Add_user'])->name('adduser');
 Route::post('/addreferraldoctor',[PageController::class,'addreferral_doctor'])->name('addreferraldoctor');
 Route::post('/PurposeEntry',[PageController::class,'Purpose_entry'])->name('PurposeEntry');
 Route::post('/ExpenseEntry',[PageController::class,'Expense_entry'])->name('ExpenseEntry');
-Route::post('/addtestOldpatient',[PageController::class,'AddTestOLdpatient'])->name('addtestOldpatient');
-
+Route::post('/oldTestPatientrecord',[PageController::class,'AddTestOLdpatient'])->name('oldTestPatientrecord');
+Route::get('/oldpatientRecord',[DashboardController::class,'Oldpatientrecord'])->name('oldpatientRecord');
 
 
 

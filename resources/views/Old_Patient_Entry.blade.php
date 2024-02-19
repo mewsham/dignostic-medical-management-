@@ -603,8 +603,8 @@
                 <div class="card-header">
                     <h3 class="card-title">Tests</h3>
                 </div>
-                <form action="{{ route('addtestOldpatient') }}" method="post">
-                    @csrf
+                <form action="{{url('/oldTestPatientrecord')}}" method="post">
+                   @csrf
                 <div class="form-group card-body">
                     <label for="exampleInputEmail1">Add Test</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" name="addtest" placeholder="Enter...">

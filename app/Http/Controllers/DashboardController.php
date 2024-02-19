@@ -78,6 +78,9 @@ class DashboardController extends Controller
         return view('dataforms.oldpatientrecord', compact('data', 'id'));
 
     }
+    public function Oldpatientrecord(){
+        return view('dataforms.oldpatientrecord');
+    }
     /**
      * Show the form for editing the specified resource.
      */
